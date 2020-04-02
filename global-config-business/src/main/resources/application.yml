@@ -1,7 +1,3 @@
-server:
-  port: 18000
-
-
 spring:
   application:
     name: config-center
@@ -14,7 +10,16 @@ spring:
           # 调用配置文件分支
           default-label: master
           # 扫描配置文件路径
-          search-paths: /config/
+          search-paths: /config/**
+          username: luyankun
+          password: lu010612
+          force-pull: true
+          basedir: /data/configBase/
+
+security:
+  user:
+    name: admin
+    password: as123456
 
 # 日志配置
 logging:
