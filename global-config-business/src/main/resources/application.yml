@@ -1,0 +1,17 @@
+server:
+  port: 18000
+
+
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git:
+          # git存储配置文件地址
+          uri: https://github.com/as-global/global-config
+          # 调用配置文件分支
+          default-label: master
+          # 扫描配置文件路径
+          search-paths: /config/
