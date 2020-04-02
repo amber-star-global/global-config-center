@@ -15,3 +15,10 @@ spring:
           default-label: master
           # 扫描配置文件路径
           search-paths: /config/
+
+# 日志配置
+logging:
+  config: classpath:logback.xml
+  level:
+    org.springframework.web: error
+    com.global.config: debug
