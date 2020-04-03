@@ -1,0 +1,47 @@
+server:
+  port: 18000
+
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git:
+          # git存储配置文件地址
+          uri: https://github.com/as-global/global-config.git
+          # 调用配置文件分支
+          default-label: master
+          # 扫描配置文件路径
+          search-paths: /config/**
+          username: luyankun
+          password: lu010612
+          force-pull: true
+          basedir: /data/configBase/
+
+
+security:
+  user:
+    name: admin
+    password: as123456
+
+# 日志配置
+logging:
+  config: classpath:logback.xml
+  level:
+    org.springframework.web: error
+    com.global.config: debug
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    metadata-map:
+      zone: configCenter
+    lease-renewal-interval-in-seconds: 15
+    lease-expiration-duration-in-seconds: 30
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@10.14.14.169:18701/eureka/, http://${security.user.name}:${security.user.password}@10.14.14.169:18702/eureka/
