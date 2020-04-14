@@ -32,7 +32,7 @@ public class ApplicationStarter extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         log.info("启动服务......");
-        SpringApplication.run(ApplicationStarter.class);
+        SpringApplication.run(ApplicationStarter.class, args);
         log.info("启动完成......");
     }
 }
