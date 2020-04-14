@@ -1,6 +1,3 @@
-server:
-  port: 18000
-
 spring:
   application:
     name: config-center
@@ -43,5 +40,3 @@ eureka:
   client:
     fetch-registry: false
     register-with-eureka: true
-    serviceUrl:
-      defaultZone: http://${security.user.name}:${security.user.password}@10.14.14.169:18701/eureka/, http://${security.user.name}:${security.user.password}@10.14.14.169:18702/eureka/
